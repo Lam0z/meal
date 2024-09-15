@@ -1,10 +1,10 @@
 <script setup>
-import TheSecond from "@/components/TheSecond.vue";
+import Second from "@/components/Second.vue";
 import TheLayout from "../components/TheLayout.vue";
 </script>
 
 <template>
     <the-layout>
-        <TheSecond />
+        <Second />
     </the-layout>
 </template>
