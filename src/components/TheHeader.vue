@@ -1,4 +1,9 @@
-<script setup></script>
+<script setup>
+import { useStore } from "@/stores/store";
+import { useRoute } from "vue-router";
+const store = useStore();
+const route = useRoute();
+</script>
 
 <template>
     <section class="header">
@@ -29,12 +34,23 @@
                             >
                         </li>
                         <li class="nav-item">
-                            <router-link class="nav-link" to="/second"
-                                >Second</router-link
-                            >
+                            <router-link
+                                class="nav-link"
+                                :class="{ disabled: !store.meal }"
+                                :to="
+                                    store.meal
+                                        ? `/meal/${store.meal.idMeal}`
+                                        : ''
+                                "
+                                >{{
+                                    store.meal
+                                        ? `Meal - ${store.meal.strMeal}`
+                                        : "Meal"
+                                }}
+                            </router-link>
                         </li>
                     </ul>
-                    <form class="d-flex" role="search">
+                    <!-- <form class="d-flex" role="search">
                         <input
                             class="form-control me-2"
                             type="search"
@@ -44,7 +60,7 @@
                         <button class="btn btn-success" type="submit">
                             Search
                         </button>
-                    </form>
+                    </form> -->
                 </div>
             </div>
         </nav>

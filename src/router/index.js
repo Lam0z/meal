@@ -11,6 +11,11 @@ const router = createRouter({
             component: HomePage,
         },
         {
+            path: "/meal/:id",
+            name: "meal",
+            component: SecondPage,
+        },
+        {
             path: "/second",
             name: "second",
             component: SecondPage,
